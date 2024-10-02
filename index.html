@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Metadatos y enlaces a recursos externos -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="./js/index.js" defer></script>
+    <script src="./js/helpers.js"></script>
+    <title>Ruleta</title>
+</head>
+<body>
+    <!-- Título principal -->
+    <header>
+        <h1>¡Ruleta de Palabras!</h1>
+    </header>
+
+    <main id="container">
+        <!-- Marcador de ganador -->
+        <section id="marcador">
+            <div id="cartelGanador">
+                <p id="ganadorTexto">¡Click en "Girar" para iniciar!</p>
+            </div>
+        </section>
+
+        <!-- Sección de la ruleta -->
+        <section id="ruleta">
+            <div id="sortear">
+                <p>GIRAR</p>
+            </div>
+        </section>
+
+        <!-- Contenedor de cartas -->
+        <section id="cardsContainer">
+            <div class="card">
+			<!-- <h2>Unitaria</h2> -->
+                <p>Verifican que cada unidad individual de código (como funciones o métodos) funcione correctamente.</p>
+            </div>
+            <div class="card">
+            <!--  <h2>Integración</h2> -->
+                <p>Aseguran que diferentes módulos o servicios del software funcionen bien juntos.</p>
+            </div>
+            <div class="card">
+                <!--<h2>Funcionales</h2>-->
+                <p>Evalúan si el software cumple con los requisitos funcionales especificados.</p>
+            </div>
+            <div class="card">
+                <!--<h2>De extremo a extremo</h2>-->
+                <p>Verifican que todo el sistema funcione correctamente desde el principio hasta el final, incluyendo todas las interacciones entre componentes y sistemas externos.</p>
+            </div>
+            <div class="card">
+                <!--<h2>Aceptación</h2>-->
+                <p>Determinan si el sistema completo cumple con los criterios establecidos por el cliente o usuario final.</p>
+            </div>
+            <div class="card">
+                <!--<h2>Rendimiento</h2>-->
+                <p>Evalúan la velocidad, estabilidad y capacidad de respuesta del software bajo diferentes cargas de trabajo para identificar cuellos de botella.</p>
+            </div>
+            <div class="card">
+                <!--<h2>Humo</h2>-->
+                <p>Son una serie de pruebas básicas que se realizan para verificar que las funciones más importantes del software funcionen correctamente.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Formulario de probabilidad -->
+    <dialog>
+        <div id="tituloForm">
+            <p>Nombre</p>
+            <p>Probabilidad (%)</p>
+        </div>
+        <div id="formContainer"></div>
+        <button id="agregar">+</button>
+        <p>Total: <span id="porcentaje"></span>%</p>
+        <button id="aceptar">Cambiar</button>
+        <button id="cancelar">Cancelar</button>
+    </dialog>
+    <footer></footer>
+</body>
+</html>
