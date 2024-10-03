@@ -1,28 +1,17 @@
 :root {
-  --escala: 600px;
+  --escala: 45vh;
   --giroRuleta: 0deg;
 }
 * {
   box-sizing: border-box;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-align: center;
 }
 body {
-  background: radial-gradient(
-    circle,
-    rgba(225, 215, 183, 1) 4%,
-    rgba(85, 103, 156, 1) 62%,
-    rgba(124, 147, 195, 1) 100%
-  );
   min-height: 100vh;
   margin: 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-}
-h1 {
-  text-align: center;
-  user-select: none;
 }
 #container {
   position: relative;
@@ -220,10 +209,6 @@ dialog #agregar {
   font-size: 1rem;
 }
 
-/* Extra */
-footer {
-  user-select: none;
-}
 
 @keyframes girar {
   100% {
