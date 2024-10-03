@@ -26,21 +26,45 @@ header {
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-.navbar {
-  list-style-type: none;
+nav {
   display: flex;
-  justify-content: center;
-  gap: 20px;
-  padding-bottom: 10px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
 }
-.navbar a {
+
+/* Estilos para el botón de inicio */
+.navbar-btn {
+  background-color: var(--hover-color);
   color: var(--text-color);
-  text-decoration: none;
+  border: none;
+  padding: 12px 24px;
   font-size: 18px;
   font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: center;
+  display: inline-block;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-decoration: none; /* Evita el subrayado del enlace */
 }
-.navbar a:hover {
-  color: var(--accent-color);
+
+.navbar-btn:hover {
+  background-color: var(--primary-color);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-btn:active {
+  background-color: var(--primary-color);
+  box-shadow: none;
+}
+
+/* Asegura que el título esté centrado */
+h1 {
+  flex-grow: 1;
+  text-align: center;
+  margin-right: 50px; /* Asegura que el título no toque el borde del navegador */
 }
 
 #container {
@@ -70,7 +94,7 @@ header {
   color: var(--text-color);
   position: absolute;
   left: -150px;
-  top: 40px;
+  top: -65px;
   background-color: var(--primary-color);
   border-radius: 8px;
   min-height: 55px;
@@ -79,13 +103,25 @@ header {
   padding: 10px;
   text-align: center;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  /* Añadiendo la flecha */
+}
+
+#cartelGanador::after {
+  content: '';
+  position: absolute;
+  bottom: -20px; /* Posición para colocar la flecha debajo del cartel */
+  left: 50%;
+  margin-left: -10px; /* Centrar la flecha */
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 20px solid var(--primary-color); /* Color de la flecha igual al cartel */
 }
 #marcador {
   position: absolute;
-  top: 70px;
   background-color: var(--primary-color);
-  height: 100px;
-  width: 4px;
 }
 #sortear {
   color: var(--text-color);
@@ -168,6 +204,49 @@ footer {
   padding: 20px;
   font-size: 0.9rem;
 }
+
+/* Estilos para el modal */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.7); /* Fondo negro con mayor opacidad */
+}
+
+.modal-content {
+  background-color: #ffffff; /* Color de fondo más claro */
+  margin: 5% auto;
+  padding: 40px; /* Aumentar el padding */
+  border: 1px solid #ccc; /* Color de borde más suave */
+  width: 80%; /* Ancho más amplio */
+  max-width: 800px;
+  text-align: center;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3); /* Sombra más suave */
+  border-radius: 15px; /* Bordes más redondeados */
+  font-family: 'Arial', sans-serif; /* Fuente más moderna */
+  line-height: 1.6; /* Aumento del interlineado */
+}
+
+.close {
+  color: #555; /* Color del botón de cerrar más oscuro */
+  float: right;
+  font-size: 32px; /* Aumento del tamaño de fuente */
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000; /* Cambio a negro en hover */
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
 @keyframes girar {
   100% {
     transform: rotate(var(--giroRuleta));

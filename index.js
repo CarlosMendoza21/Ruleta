@@ -12,6 +12,15 @@ const cuatro = { nombre: "De extremo a extremo", probabilidad: 14.28571428571429
 const cinco = { nombre: "Aceptación", probabilidad: 14.28571428571429 };
 const seis = { nombre: "Redimiento", probabilidad: 14.28571428571429 };
 const siete = { nombre: "Humo", probabilidad: 14.28571428571429 };
+const linksGanadores = {
+	"Unitaria": "../info/unitaria.html",
+	"Integración": "../info/integracion.html",
+	"Funcionales": "../info/funcionales.html",
+	"De extremo a extremo": "../info/extremo.html",
+	"Aceptación": "../info/aceptacion.html",
+	"Redimiento": "../info/rendimiento.html",
+	"Humo": "../info/humo.html"
+  };
 let opcionesContainer;
 let opciones = Array.from(document.getElementsByClassName("opcion"));
 let animacionCarga;
@@ -101,7 +110,7 @@ function ajustarRuleta() {
     pAcumulada += concepto.probabilidad;
     //Reseteo la posición y el cartel
     ruleta.style.transform = "rotate(0deg)";
-    ganadorTextoElement.textContent = "¡Click en Girar para iniciar!";
+    ganadorTextoElement.textContent = "¡Gira la Ruleta para iniciar!";
   });
 }
 
@@ -201,6 +210,11 @@ ruleta.addEventListener("animationend", () => {
 	ganadorTextoElement.textContent = ganador;  // Mostrar el ganador en el cartel
 	clearInterval(animacionCarga);
   
+	// Obtener elementos del modal
+	const modal = document.getElementById("resultadoModal");
+	const modalTexto = document.getElementById("resultadoTexto");
+	const closeModal = document.querySelector(".close");
+  
 	// Eliminar los event listeners anteriores para evitar acumulación
 	const cards = document.querySelectorAll(".card");
 	cards.forEach((card) => {
@@ -212,11 +226,34 @@ ruleta.addEventListener("animationend", () => {
 	  newCard.addEventListener("click", () => {
 		// Verificar si el id de la tarjeta seleccionada coincide con el ganador
 		if (newCard.id === ganador) {
-		  alert("¡Correcto!");
+		  // Usar fetch para cargar el contenido de la página del ganador y mostrarlo en el modal
+		  fetch(linksGanadores[ganador])
+			.then(response => response.text())
+			.then(data => {
+			  // Mostrar el contenido dentro del modal
+			  modalTexto.innerHTML = `<h1>¡Correcto!</h1>` + data;
+			})
+			.catch(error => {
+			  modalTexto.textContent = `No se pudo cargar la información del ganador: ${ganador}`;
+			});
 		} else {
-		  alert("Incorrecto");
+		  modalTexto.textContent = "Incorrecto. Intentalo de nuevo";
 		}
+		// Mostrar el modal
+		modal.style.display = "block";
 	  });
+	});
+  
+	// Cerrar el modal al hacer clic en el botón de cierre
+	closeModal.addEventListener("click", () => {
+	  modal.style.display = "none";
+	});
+  
+	// Cerrar el modal si se hace clic fuera del contenido del modal
+	window.addEventListener("click", (event) => {
+	  if (event.target === modal) {
+		modal.style.display = "none";
+	  }
 	});
   });
   

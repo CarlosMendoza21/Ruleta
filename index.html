@@ -13,14 +13,10 @@
 <body>
     <header>
         <nav>
-            <ul class="navbar">
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Temas</a></li>
-                <li><a href="#">Ayuda</a></li>
-                <li><a href="#">Contacto</a></li>
-            </ul>
+            <a href="./main.html" class="navbar-btn">Inicio</a>
+            <h1>Pruebas Unitarias de Software</h1>
+            <p>Selecciona la tarjeta correspondiente.</p>
         </nav>
-        <h1>Pruebas Unitarias de Software</h1>
     </header>
 
     <main id="container">
@@ -50,19 +46,29 @@
                 <p>Verifican que todo el sistema funcione correctamente desde el principio hasta el final.</p>
             </div>
             <div class="card" id="Aceptación">
-                <p>Determinan si el sistema completo cumple con los criterios establecidos por el cliente o usuario final.</p>
+                <p>Determinan si el sistema completo cumple con los criterios establecidos por el cliente o usuario
+                    final.</p>
             </div>
             <div class="card" id="Rendimiento">
-                <p>Evalúan la velocidad, estabilidad y capacidad de respuesta del software bajo diferentes cargas de trabajo.</p>
+                <p>Evalúan la velocidad, estabilidad y capacidad de respuesta del software bajo diferentes cargas de
+                    trabajo.</p>
             </div>
             <div class="card" id="Humo">
-                <p>Son una serie de pruebas básicas que se realizan para verificar las funciones más importantes del software.</p>
+                <p>Son una serie de pruebas básicas que se realizan para verificar las funciones más importantes del
+                    software.</p>
+            </div>
+        </div>
+        <!-- Modal -->
+        <div id="resultadoModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p id="resultadoTexto"></p>
             </div>
         </div>
     </main>
 
     <footer>
-        <p>&copy; 2024 Ruleta App | Todos los derechos reservados</p>
+        <p>&copy; 2024 Hackabobos | Todos los derechos reservados</p>
     </footer>
 </body>
 

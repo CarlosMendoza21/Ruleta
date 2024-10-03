@@ -1,0 +1,121 @@
+:root {
+    --escala: 60vh;
+    --primary-color: #1e2a5e;
+    --secondary-color: #f8f9fa;
+    --hover-color: #222e6b;
+    --text-color: #ffffff;
+  }
+  
+  * {
+    box-sizing: border-box;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    margin: 0;
+    padding: 0;
+  }
+  
+  header {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  footer {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9rem;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+  }
+  
+  /* Centrar el contenido principal */
+  main {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Contenedor de los botones */
+  .button-container {
+    display: flex;
+    flex-direction: column; /* Cambia a columna */
+    gap: 20px; /* Espacio entre los botones */
+    align-items: center; /* Alinear al centro horizontalmente */
+  }
+  
+  /* Botones grandes */
+  .btn-large {
+    padding: 20px 40px;
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: var(--text-color);
+    background-color: var(--hover-color);
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    width: 100%; /* Para hacer el botón más ancho */
+    max-width: 300px; /* Controlar el ancho máximo de los botones */
+  }
+  
+  .btn-large:hover {
+    background-color: var(--primary-color);
+  }
+  
+  /* Navbar y botón de inicio */
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+  }
+  
+  .navbar-btn {
+    background-color: var(--hover-color);
+    color: var(--text-color);
+    border: none;
+    padding: 12px 24px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    display: inline-block;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+  }
+  
+  .navbar-btn:hover {
+    background-color: var(--primary-color);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .navbar-btn:active {
+    background-color: var(--primary-color);
+    box-shadow: none;
+  }
+  
+  /* Asegurar que el título esté centrado */
+  h1 {
+    flex-grow: 1;
+    text-align: center;
+    margin-right: 50px;
+  }
+  
