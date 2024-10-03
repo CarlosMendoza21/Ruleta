@@ -1,90 +1,69 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <script src="./index.js" defer></script>
     <title>Ruleta</title>
-  </head>
-    <!-- Body -->
-  <body>
+</head>
+
+<body>
     <header>
-      <h1>¡Ruleta!</h1>
+        <nav>
+            <ul class="navbar">
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Temas</a></li>
+                <li><a href="#">Ayuda</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </nav>
+        <h1>Pruebas Unitarias de Software</h1>
     </header>
 
     <main id="container">
-      <!-- Marcador de ganador -->
-      <section id="marcador">
-        <div id="cartelGanador">
-          <p id="ganadorTexto">¡Click en "Girar" para iniciar!</p>
+        <div id="ruletaContainer">
+            <div id="marcador">
+                <div id="cartelGanador">
+                    <p id="ganadorTexto">¡Click en "Girar" para iniciar!</p>
+                </div>
+            </div>
+            <div id="ruleta">
+                <div id="sortear">
+                    <p>GIRAR</p>
+                </div>
+            </div>
         </div>
-      </section>
-
-      <!-- Sección de la ruleta -->
-      <section id="ruleta">
-        <div id="sortear">
-          <p>GIRAR</p>
+        <div id="cardsContainer">
+            <div class="card" id="Unitaria">
+                <p>Verifican que cada unidad individual de código (como funciones o métodos) funcione correctamente.</p>
+            </div>
+            <div class="card" id="Integración">
+                <p>Aseguran que diferentes módulos o servicios del software funcionen bien juntos.</p>
+            </div>
+            <div class="card" id="Funcionales">
+                <p>Evalúan si el software cumple con los requisitos funcionales especificados.</p>
+            </div>
+            <div class="card" id="extremo">
+                <p>Verifican que todo el sistema funcione correctamente desde el principio hasta el final.</p>
+            </div>
+            <div class="card" id="Aceptación">
+                <p>Determinan si el sistema completo cumple con los criterios establecidos por el cliente o usuario final.</p>
+            </div>
+            <div class="card" id="Rendimiento">
+                <p>Evalúan la velocidad, estabilidad y capacidad de respuesta del software bajo diferentes cargas de trabajo.</p>
+            </div>
+            <div class="card" id="Humo">
+                <p>Son una serie de pruebas básicas que se realizan para verificar las funciones más importantes del software.</p>
+            </div>
         </div>
-      </section>
-
-      <!-- Contenedor de cartas -->
-      <section id="cardsContainer">
-        <div class="card" id="Unitaria">
-          <!-- <h2>Unitaria</h2> -->
-          <p>
-            Verifican que cada unidad individual de código (como funciones o
-            métodos) funcione correctamente.
-          </p>
-        </div>
-        <div class="card" id="Integración">
-          <!--  <h2>Integración</h2> -->
-          <p>
-            Aseguran que diferentes módulos o servicios del software funcionen
-            bien juntos.
-          </p>
-        </div>
-        <div class="card" id="Funcionales">
-          <!--<h2>Funcionales</h2>-->
-          <p>
-            Evalúan si el software cumple con los requisitos funcionales
-            especificados.
-          </p>
-        </div>
-        <div class="card" id="extremo">
-          <!--<h2>De extremo a extremo</h2>-->
-          <p>
-            Verifican que todo el sistema funcione correctamente desde el
-            principio hasta el final, incluyendo todas las interacciones entre
-            componentes y sistemas externos.
-          </p>
-        </div>
-        <div class="card" id="Aceptación">
-          <!--<h2>Aceptación</h2>-->
-          <p>
-            Determinan si el sistema completo cumple con los criterios
-            establecidos por el cliente o usuario final.
-          </p>
-        </div>
-        <div class="card" id="Rendimiento">
-          <!--<h2>Rendimiento</h2>-->
-          <p>
-            Evalúan la velocidad, estabilidad y capacidad de respuesta del
-            software bajo diferentes cargas de trabajo para identificar cuellos
-            de botella.
-          </p>
-        </div>
-        <div class="card" id="Humo">
-          <!--<h2>Humo</h2>-->
-          <p>
-            Son una serie de pruebas básicas que se realizan para verificar que
-            las funciones más importantes del software funcionen correctamente.
-          </p>
-        </div>
-      </section>
     </main>
 
-    <footer></footer>
-  </body>
+    <footer>
+        <p>&copy; 2024 Ruleta App | Todos los derechos reservados</p>
+    </footer>
+</body>
+
 </html>

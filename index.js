@@ -1,63 +1,24 @@
 //Referencias a objetos
 const ruleta = document.getElementById("ruleta");
-let opcionesContainer;
-let opciones = Array.from(document.getElementsByClassName("opcion"));
 const root = document.documentElement;
 const formContainer = document.getElementById("formContainer");
-const modal = document.querySelector("dialog");
 const ganadorTextoElement = document.getElementById("ganadorTexto");
-let ganador = "Felicidades Acertaste!";
+const colores = ["a93226","8e44ad","3498db","16a085","2ecc71","f39c12",
+  "d35400","8E402A","231A24","424632","1F3438","025669","008F39","763C28",];
+const uno = { nombre: "Unitaria", probabilidad: 14.28571428571429 };
+const dos = { nombre: "Integración", probabilidad: 14.28571428571429 };
+const tres = { nombre: "Funcionales", probabilidad: 14.28571428571429 };
+const cuatro = { nombre: "De extremo a extremo", probabilidad: 14.28571428571429,};
+const cinco = { nombre: "Aceptación", probabilidad: 14.28571428571429 };
+const seis = { nombre: "Redimiento", probabilidad: 14.28571428571429 };
+const siete = { nombre: "Humo", probabilidad: 14.28571428571429 };
+let opcionesContainer;
+let opciones = Array.from(document.getElementsByClassName("opcion"));
 let animacionCarga;
 let sorteando = false;
-const colores = [
-  "a93226",
-  "8e44ad",
-  "3498db",
-  "16a085",
-  "2ecc71",
-  "f39c12",
-  "d35400",
-  "8E402A",
-  "231A24",
-  "424632",
-  "1F3438",
-  "025669",
-  "008F39",
-  "763C28",
-];
-
-/** Contiene la suma actual de probabilidades en base 100 */
 let suma = 0;
-const uno = {
-  nombre: "Unitaria",
-  probabilidad: 14.28571428571429,
-};
-const dos = {
-  nombre: "Integración",
-  probabilidad: 14.28571428571429,
-};
-const tres = {
-  nombre: "Funcionales",
-  probabilidad: 14.28571428571429,
-};
-const cuatro = {
-  nombre: "De extremo a extremo",
-  probabilidad: 14.28571428571429,
-};
-const cinco = {
-  nombre: "Aceptación",
-  probabilidad: 14.28571428571429,
-};
-const seis = {
-  nombre: "Redimiento",
-  probabilidad: 14.28571428571429,
-};
-const siete = {
-  nombre: "Humo",
-  probabilidad: 14.28571428571429,
-};
-
 let conceptos = [uno, dos, tres, cuatro, cinco, seis, siete];
+/* Functions */
 function sortear() {
   sorteando = true;
   ganadorTextoElement.textContent = ".";
@@ -92,7 +53,6 @@ function sortear() {
   });
 }
 
-/** Desacopla lo que ocurre al terminar de girar la ruleta de la función girar */
 ruleta.addEventListener("animationend", () => {
   ruleta.style.transform = "rotate(" + getCurrentRotation(ruleta) + "deg)";
   ruleta.classList.toggle("girar", false);
@@ -125,7 +85,7 @@ function ajustarRuleta() {
     nombreElement.classList.add("nombre");
     nombreElement.style = `width : calc(${
       concepto.probabilidad
-    } * var(--escala) * 1.5 / 80);
+    } * var(--escala) * 1.5/ 80);
 			transform: rotate(${
         probabilidadAGrados(concepto.probabilidad) / 2 +
         probabilidadAGrados(pAcumulada)
@@ -233,5 +193,32 @@ function probabilidadAGrados(probabiliad) {
 function probabilidadARadianes(probabilidad) {
   return (probabilidad / 100) * 2 * Math.PI;
 }
+
+ruleta.addEventListener("animationend", () => {
+	ruleta.style.transform = "rotate(" + getCurrentRotation(ruleta) + "deg)";
+	ruleta.classList.toggle("girar", false);
+	sorteando = false;
+	ganadorTextoElement.textContent = ganador;  // Mostrar el ganador en el cartel
+	clearInterval(animacionCarga);
+  
+	// Eliminar los event listeners anteriores para evitar acumulación
+	const cards = document.querySelectorAll(".card");
+	cards.forEach((card) => {
+	  // Clonamos el elemento para eliminar los event listeners antiguos
+	  const newCard = card.cloneNode(true);
+	  card.parentNode.replaceChild(newCard, card);
+  
+	  // Agregamos un nuevo event listener para la selección de la tarjeta
+	  newCard.addEventListener("click", () => {
+		// Verificar si el id de la tarjeta seleccionada coincide con el ganador
+		if (newCard.id === ganador) {
+		  alert("¡Correcto!");
+		} else {
+		  alert("Incorrecto");
+		}
+	  });
+	});
+  });
+  
 
 ajustarRuleta();

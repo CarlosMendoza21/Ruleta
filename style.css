@@ -1,89 +1,120 @@
 :root {
-  --escala: 45vh;
-  --giroRuleta: 0deg;
+  --escala: 60vh;
+  --primary-color: #1e2a5e;
+  --secondary-color: #f8f9fa;
+  --hover-color: #222e6b;
+  --text-color: #ffffff;
 }
 * {
   box-sizing: border-box;
   text-align: center;
+  padding: 0;
+  margin: 0;
 }
 body {
   min-height: 100vh;
-  margin: 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  overflow: hidden; /* Eliminar scroll */
 }
-#container {
-  position: relative;
+header {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.navbar {
+  list-style-type: none;
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  height: 100%;
+  gap: 20px;
+  padding-bottom: 10px;
+}
+.navbar a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+}
+.navbar a:hover {
+  color: var(--accent-color);
+}
+
+#container {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  height: calc(100vh - 140px); /* Ajusta el contenedor para que ocupe el espacio restante entre header y footer */
+  padding-top: 15ch;
+  padding-left: 5ch;
 }
 #ruleta {
   position: relative;
   box-sizing: border-box;
   height: var(--escala);
   width: var(--escala);
-  border: 2px solid black;
   border-radius: 50%;
   overflow: hidden;
+  background-color: var(--accent-color);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+#ruletaContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 #cartelGanador {
-  color: white;
+  color: var(--text-color);
   position: absolute;
   left: -150px;
-  top: -40px;
-  background-color: rgba(30, 42, 94, 1);
+  top: 40px;
+  background-color: var(--primary-color);
+  border-radius: 8px;
   min-height: 55px;
   width: 300px;
   font-weight: bold;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 #marcador {
   position: absolute;
-  z-index: 10;
-  top: -20px;
-  background-color: black;
+  top: 70px;
+  background-color: var(--primary-color);
   height: 100px;
-  width: 5px;
-  pointer-events: none;
-}
-/* Transportador */
-#ruleta img {
-  position: absolute;
-  left: 0;
-  transform: rotate(90deg);
-  width: var(--escala);
-  z-index: 10;
-  opacity: 80%;
-  pointer-events: none;
-}
-#opcionesContainer {
-  transform-origin: center;
+  width: 4px;
 }
 #sortear {
-  color: white;
+  color: var(--text-color);
   position: absolute;
-  background-color: rgba(30, 42, 94, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  background-color: var(--primary-color);
   border-radius: 50%;
   width: 60px;
   height: 60px;
   top: calc(var(--escala) / 2 - 60px / 2);
   left: calc(var(--escala) / 2 - 60px / 2);
   z-index: 2;
-  text-align: center;
   cursor: pointer;
-  user-select: none;
+  transition: background-color 0.3s ease;
+}
+#sortear:hover {
+  background-color: var(--hover-color);
+}
+#cardsContainer {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
-  border: 3px solid black;
+  margin: 20px;
 }
 .opcion {
   position: absolute;
-  top: 0px;
-  left: 0px;
   height: var(--escala);
   width: var(--escala);
   background-color: var(--color);
@@ -95,121 +126,48 @@ body {
   margin: 0;
   padding-top: 10%;
   color: white;
-  text-align: center;
   height: calc(var(--escala) / 2);
   position: absolute;
-  /*bottom: 80%;*/
-  top: -0%;
   left: calc(var(--escala) / 3);
   transform-origin: bottom center;
   font-size: calc(var(--escala) / 25);
-  text-overflow: clip;
-  pointer-events: none;
-}
-.separador {
-  position: absolute;
-  left: calc(var(--escala) / 2 - 1px);
-  height: calc(var(--escala) / 2);
-  width: 4px;
-  transform-origin: center bottom;
-  background-color: rgb(0, 0, 0);
-  z-index: 1;
-  border-radius: 2px;
 }
 
 .girar {
   animation-name: girar;
-  animation-duration: 5s;
+  animation-duration: 2s;
   animation-timing-function: cubic-bezier(0.1, 0, 0.18, 0.99);
   animation-direction: normal;
   animation-fill-mode: forwards;
 }
 
-/* Modal y formulario */
-dialog {
-  border: unset;
-  border-radius: 10px;
-  opacity: 95%;
-  padding: 30px;
-  -webkit-box-shadow: 10px 10px 20px 0px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 10px 10px 20px 0px rgba(0, 0, 0, 0.75);
-  box-shadow: 10px 10px 20px 0px rgba(0, 0, 0, 0.75);
-}
-
-dialog::backdrop {
-  backdrop-filter: blur(2px);
-}
-
-dialog input[type="number"] {
-  max-width: 50px;
-}
-
-dialog #agregar {
-  display: block;
-  margin: auto;
-}
-
-#tituloForm {
-  display: flex;
-  justify-content: space-around;
-  font-weight: bold;
-  text-decoration: underline;
-  gap: 40px;
-}
-
-#formContainer {
-  display: flex;
-  flex-direction: column;
-}
-
-#formContainer div {
-  display: flex;
-}
-
-#formContainer div label {
-  margin-right: auto;
-}
-
-#cardsContainer {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  margin: 20px;
-}
-
 .card {
-  background-color: #f8f9fa;
+  background-color: var(--secondary-color);
   border: 1px solid #ddd;
   border-radius: 8px;
   transition: transform 0.3s ease, background-color 0.3s ease;
   cursor: pointer;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  width: 200px;
+  width: 220px;
   padding: 20px;
   margin: 10px;
   text-align: center;
 }
 .card:hover {
   transform: scale(1.05);
-  border-color: black;
+  border-color: var(--primary-color);
 }
 .card.selected {
-  background-color: rgb(124, 147, 195);
-  color: white;
+  background-color: var(--primary-color);
+  color: var(--text-color);
 }
-
-.card h2 {
-  color: #333;
-  font-size: 1.5rem;
-  margin-bottom: 10px;
+footer {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
 }
-
-.card p {
-  color: black;
-  font-size: 1rem;
-}
-
-
 @keyframes girar {
   100% {
     transform: rotate(var(--giroRuleta));
