@@ -10,7 +10,7 @@ const colores = ["a93226","8e44ad","3498db","16a085","2ecc71","f39c12",
 const uno = { nombre: "Unitaria", probabilidad: 14.28571428571429 };
 const dos = { nombre: "Integración", probabilidad: 14.28571428571429 };
 const tres = { nombre: "Funcionales", probabilidad: 14.28571428571429 };
-const cuatro = { nombre: "De extremo a extremo", probabilidad: 14.28571428571429 };
+const cuatro = { nombre: "extremo", probabilidad: 14.28571428571429 };
 const cinco = { nombre: "Aceptación", probabilidad: 14.28571428571429 };
 const seis = { nombre: "Rendimiento", probabilidad: 14.28571428571429 };
 const siete = { nombre: "Humo", probabilidad: 14.28571428571429 };
@@ -20,7 +20,7 @@ const linksGanadores = {
   "Unitaria": "../info/unitaria.html",
   "Integración": "../info/integracion.html",
   "Funcionales": "../info/funcionales.html",
-  "De extremo a extremo": "../info/extremo.html",
+  "extremo": "../info/extremo.html",
   "Aceptación": "../info/aceptacion.html",
   "Rendimiento": "../info/rendimiento.html",
   "Humo": "../info/humo.html"
