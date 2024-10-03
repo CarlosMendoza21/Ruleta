@@ -10,7 +10,7 @@ const dos = { nombre: "Integración", probabilidad: 14.28571428571429 };
 const tres = { nombre: "Funcionales", probabilidad: 14.28571428571429 };
 const cuatro = { nombre: "De extremo a extremo", probabilidad: 14.28571428571429,};
 const cinco = { nombre: "Aceptación", probabilidad: 14.28571428571429 };
-const seis = { nombre: "Redimiento", probabilidad: 14.28571428571429 };
+const seis = { nombre: "Rendimiento", probabilidad: 14.28571428571429 };
 const siete = { nombre: "Humo", probabilidad: 14.28571428571429 };
 const linksGanadores = {
 	"Unitaria": "../info/unitaria.html",
@@ -18,7 +18,7 @@ const linksGanadores = {
 	"Funcionales": "../info/funcionales.html",
 	"De extremo a extremo": "../info/extremo.html",
 	"Aceptación": "../info/aceptacion.html",
-	"Redimiento": "../info/rendimiento.html",
+	"Rendimiento": "../info/rendimiento.html",
 	"Humo": "../info/humo.html"
   };
 let opcionesContainer;
