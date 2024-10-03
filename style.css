@@ -35,7 +35,7 @@ nav {
 
 /* Estilos para el botón de inicio */
 .navbar-btn {
-  background-color: var(--hover-color);
+  background-color: #3498db ;
   color: var(--text-color);
   border: none;
   padding: 12px 24px;
